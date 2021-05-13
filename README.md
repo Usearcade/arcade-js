@@ -9,11 +9,11 @@
   <a href="https://github.com/Usearcade/arcade-js/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/Usearcade/arcade-js/blob/master/LICENSE" target="_blank">
-    <img alt="License: ISC" src="https://img.shields.io/github/license/Usearcade/@usearcade/arcade-js" />
-  </a>
   <a href="https://twitter.com/usearcade" target="_blank">
     <img alt="Twitter: usearcade" src="https://img.shields.io/twitter/follow/usearcade.svg?style=social" />
+  </a>
+  <a href="https://opensource.org/licenses/GPL-3.0" target="_blank">
+    <img alt="License: GPL-3.0" src="https://img.shields.io/github/license/Usearcade/@usearcade/arcade-js" />
   </a>
 </p>
 
@@ -61,5 +61,8 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## 📝 License
 
-Copyright © 2021 [Arcade Inc.](https://github.com/Usearcade).<br />
+Copyright © 2021 [Arcade Inc.](https://github.com/Usearcade)<br />
 This project is [GPL-3.0](https://opensource.org/licenses/GPL-3.0) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

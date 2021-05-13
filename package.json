@@ -1,6 +1,6 @@
 {
   "name": "@usearcade/arcade-js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Make Arcade a dependency in your project and access your design tokens with ease",
   "main": "./libs/local.js",
   "repository": {
@@ -20,5 +20,6 @@
     "@usearcade/arcade-libs": "0.0.5",
     "jsonfile": "^6.1.0",
     "write": "^2.0.0"
-  }
+  },
+  "keywords": ["design tokens", "arcade", "tokens", "design tooling", "css", "usearcade"]
 }
