@@ -1,7 +1,7 @@
-const jsonfile                              = require('jsonfile');
-const write                                 = require('write');
-const { defaultLocalConfig, stringify }     = require('@usearcade/arcade-libs');
-const fs                                    = require('fs').promises;
+const jsonfile                                  = require('jsonfile');
+const write                                     = require('write');
+const { defaultLocalConfig, stringify, log }    = require('@usearcade/arcade-libs');
+const fs                                        = require('fs').promises;
 
 
 // This is needed because of a bug with local testing
@@ -27,7 +27,7 @@ if (process.argv[2] === 'update=true') {
     try {
 
         // Write test.js file with our operations
-        console.log('Executing arcade-js postinstall...');
+        log({ msg: 'Executing arcade-js postinstall...' });
 
         // Make sure config is there, generate one if not
         await handleConfig();
@@ -39,18 +39,17 @@ if (process.argv[2] === 'update=true') {
         await addScriptToPackage({ key: "arcade-update",    value: "node ./.arcade/execute.js update=true", force: true });
         await addScriptToPackage({ key: "arcade-build",     value: "node ./.arcade/execute.js",             force: true });
 
-        console.log('\nInstall success.');
-        console.log('Ensure arcade-config.json contains your project details.');
-        console.log('\n          npm run arcade-build');
-        console.log('                     to build your tokens in their current configuration.');
-        console.log('\n          npm run arcade-update');
-        console.log('                     to update your tokens and rebuild them.');
-        console.log('\n\n');
+        log({ msg: '\nInstall success.', type: 'success' });
+        log({ msg: 'Ensure arcade-config.json contains your project details.' });
+        log({ msg: '\n          npm run arcade-build', type: 'command' });
+        log({ msg: '                     to build your tokens in their current configuration.' });
+        log({ msg: '\n          npm run arcade-update', type: 'command' });
+        log({ msg: '                     to update your tokens and rebuild them.' });
+        log({ msg: '\n\n' });
 
     } catch (err) {
         process.exitCode = 1;
-        console.log('Error: ', err);
-        return err;
+        log({ msg: err, type: 'error' });
     }
 })();
 

@@ -1,13 +1,14 @@
-const fs = require('fs').promises;
-const { getDefaultTemplateJSON, stringify } = require('@usearcade/arcade-libs');
-
-const build = require('./build');
-const getExports = require('./get-exports');
+const fs                                            = require('fs').promises;
+const { getDefaultTemplateJSON, stringify, log }    = require('@usearcade/arcade-libs');
+const build                                         = require('./build');
+const getExports                                    = require('./get-exports');
+const ensureValidToken                              = require('./ensure-valid-token');
 
 const buildTokens = async (config, options = {}) => {
     try {
 
         await ensureValidConfig({ config });
+        await ensureValidToken({ token: config.access_token, projectId: config.project_id });
 
         // BUILD HERE
         const res = options.skip_build
@@ -27,44 +28,48 @@ const buildTokens = async (config, options = {}) => {
 
         return res;
     } catch (err) {
-        return Promise.reject(err);
+        process.exitCode = 1;
+        log({ msg: '\n' });
+        log({ msg: err, type: 'error' });
+        log({ msg: '\n' });
     }
 }
 
 const updateTokens = async (config, options = {}) => {
     try {
-        console.log('Updating tokens...');
+        log({ msg: 'Updating tokens...' });
         const res = await buildTokens({ ...config, version: 'live' }, config.access_token, { ...options, return_response: true });
         config.version = res.version;
         await fs.writeFile(`${__dirname}/../arcade-config.json`, stringify(config));
-        console.log(`Successfully updated tokens to version ${res.version}.`);
-
+        log({ msg: `Successfully updated tokens to version ${res.version}.`, type: 'success' });
+        
         return res;
     } catch (err) {
-        return Promise.reject(err);
+        process.exitCode = 1;
+        log({ msg: '\n' });
+        log({ msg: err, type: 'error' });
+        log({ msg: '\n' });
     }
 }
 
-const ensureValidConfig = async (config) => {
+const ensureValidConfig = async ({ config }) => {
     if (!config.access_token) {
-        process.exitCode = 1;
-        console.error('No access_token supplied in arcade-config.json');
+        return Promise.reject('No access_token supplied in arcade-config.json');
     }
     
     if (!config.project_id) {
-        process.exitCode = 1;
-        console.error('No project_id supplied in arcade-config.json');
+        return Promise.reject('No project_id supplied in arcade-config.json');
     }
 
     if (!config.version) {
-        process.exitCode = 1;
-        console.error('No version supplied in arcade-config.json');
+        return Promise.reject('No version supplied in arcade-config.json');
     }
 
     if (!config.formats) {
-        process.exitCode = 1;
-        console.error('No formats supplied in arcade-config.json');
+        return Promise.reject('No formats supplied in arcade-config.json');
     }
+
+    return config;
 }
 
 

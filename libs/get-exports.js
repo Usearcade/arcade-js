@@ -1,4 +1,4 @@
-const { GETrequestWithToken } = require('@usearcade/arcade-libs');
+const { GETrequestWithToken } = require('@usearcade/arcade-libs').requestPrototypes;
 const { API_STYLE_STRINGS } = require('@usearcade/arcade-libs').endpoints;
 
 const getExports = async ({ config, token, options }) => {

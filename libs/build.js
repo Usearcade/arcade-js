@@ -1,7 +1,7 @@
 const getExports = require('./get-exports');
 const fs = require('fs').promises;
+const log = require('@usearcade/arcade-libs').log;
 
-const log = () => console.log;
 
 const build = async ({ config, token = '', options }) => {
 
@@ -14,8 +14,7 @@ const build = async ({ config, token = '', options }) => {
     config.formats.map(f => formatsMap[f.format_name] = f);
 
     // Write some shit
-    log({ msg: '\n----------\n', options });
-    log({ msg: `Building token files from version ${res.version}...`, options });
+    log({ msg: `\nBuilding token files from version ${res.version}...\n` });
 
     // Loop through formats and write files
     for (const format of compiledFormats) {
@@ -25,7 +24,6 @@ const build = async ({ config, token = '', options }) => {
         await fs.writeFile(outputPath, fileString);
         log({ msg: `\nSuccessfully built ${format.displayName} at ${outputPath}!`, type: 'success', options });
     }
-    log({ msg: '\n----------\n', options });
 
     return res;
 }

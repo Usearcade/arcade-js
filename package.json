@@ -1,19 +1,23 @@
 {
   "name": "@usearcade/arcade-js",
-  "version": "0.0.1",
-  "description": "Make Arcade a dependency in your project",
+  "version": "0.0.9",
+  "description": "Make Arcade a dependency in your project and access your design tokens with ease",
   "main": "./libs/local.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Usearcade/arcade-js.git"
   },
+  "homepage": "https://github.com/Usearcade/arcade-js#readme",
   "scripts": {
     "postinstall": "node post-install.js"
   },
+  "bugs": {
+    "url": "https://github.com/Usearcade/arcade-js/issues"
+  },
   "author": "Mike Carbone",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "dependencies": {
-    "@usearcade/arcade-libs": "0.0.2",
+    "@usearcade/arcade-libs": "0.0.5",
     "jsonfile": "^6.1.0",
     "write": "^2.0.0"
   }
