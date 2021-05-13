@@ -48,7 +48,7 @@ This command will fetch the latest published tokens from Arcade and build them l
 
 ## Author
 
-👤 **Mike Carbone**
+👤 **Arcade Inc.**
 
 * Website: https://usearcade.com
 * Twitter: [@usearcade](https://twitter.com/usearcade)
@@ -61,5 +61,5 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## 📝 License
 
-Copyright © 2021 [Mike Carbone](https://github.com/Usearcade).<br />
+Copyright © 2021 [Arcade Inc.](https://github.com/Usearcade).<br />
 This project is [GPL-3.0](https://opensource.org/licenses/GPL-3.0) licensed.

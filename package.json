@@ -1,6 +1,6 @@
 {
   "name": "@usearcade/arcade-js",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Make Arcade a dependency in your project and access your design tokens with ease",
   "main": "./libs/local.js",
   "repository": {
@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/Usearcade/arcade-js/issues"
   },
-  "author": "Mike Carbone",
+  "author": "Arcade Inc.",
   "license": "GPL-3.0-only",
   "dependencies": {
     "@usearcade/arcade-libs": "0.0.5",
